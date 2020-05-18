@@ -3,8 +3,11 @@ import 'core/providers.dart';
 import 'core/services/navigator_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'theme/colors.dart';
+import 'theme/theme.dart';
 import 'views/home/home_view.dart';
 import 'views/onboarding/onboarding_view.dart';
+import 'views/setup_location/setup_location_view.dart';
 
 void main() async {
   await LocatorInjector.setupLocator();
@@ -17,9 +20,10 @@ class MainApplication extends StatelessWidget {
     return MultiProvider(
       providers: ProviderInjector.providers,
       child: MaterialApp(
-        navigatorKey: locator<NavigatorService>().navigatorKey,
-        home: OnboardingView(),
-      ),
+          theme: buildAppTheme(),
+          navigatorKey: locator<NavigatorService>().navigatorKey,
+          //home: OnboardingView(),
+          home: SetupLocationView()),
     );
   }
 }

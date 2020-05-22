@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'setup_location_view_model.dart';
+import 'setup_finish_view_model.dart';
 
-class SetupLocationView extends StatelessWidget {
-  const SetupLocationView({Key key}) : super(key: key);
+class SetupFinishView extends StatelessWidget {
+  const SetupFinishView({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,35 +28,35 @@ class SetupLocationView extends StatelessWidget {
           ),
         ),
         body: Container(
-          margin: EdgeInsets.symmetric(horizontal: 10.0),
+          margin: EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              Image.asset('assets/images/People Network.png'),
-              Text('Privately Connect',
+              Image.asset('assets/images/Phone Alerts.png'),
+              Text('You’re all set!',
                   textAlign: TextAlign.left,
                   style: Theme.of(context).textTheme.headline4),
               Text(
-                'The app uses GPS to collect data when other phones with Covid Care apps are nearby. The generated Location information stays on your phone.',
+                'Thank you for helping protect your communities. You will be notified of potential exposure to COVID-19.',
                 textAlign: TextAlign.left,
                 style: Theme.of(context).textTheme.subtitle1,
               ),
               CupertinoButton.filled(
                 onPressed: () {},
                 child: Text(
-                  'Allow Location'.toUpperCase(),
+                  'Allow Notification'.toUpperCase(),
                   style: Theme.of(context).textTheme.button,
                 ),
               ),
               Text(
-                'This is required for the app to work.',
+                'Helps you to get exposure notification.',
                 style: Theme.of(context).textTheme.subtitle2,
               )
             ],
           ),
         ),
       ),
-      viewModelBuilder: () => SetupLocationViewModel(),
+      viewModelBuilder: () => SetupFinishViewModel(),
     );
   }
 }

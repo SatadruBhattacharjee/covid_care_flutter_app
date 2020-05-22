@@ -5,7 +5,8 @@ ThemeData buildAppTheme() {
   ThemeData base = ThemeData(
     primarySwatch: kDeepPurpleSwatch,
     textTheme: TextTheme(
-      subtitle2: TextStyle(color: Color(0xFF585858)),
+      subtitle2: TextStyle(color: kHeadingTextColor),
+      headline5: TextStyle(color: kHeadingTextColor),
       button: TextStyle(color: kButtonColor),
     ),
   );

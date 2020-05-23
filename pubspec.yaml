@@ -13,12 +13,15 @@ dependencies:
   stacked: ^1.5.4
   stacked_services: ^0.3.2+1
   responsive_builder: ^0.2.0+2
+  flutter_local_notifications: ^1.4.3
+  shared_preferences: ^0.5.7+3
   injectable: ^0.4.0
   auto_route: ^0.5.0
   provider: ^4.1.2
   logger: ^0.9.1
   get_it: ^4.0.2
   equatable: ^1.1.1
+  day: ^0.5.4
 dev_dependencies:
   flutter_test:
     sdk: flutter

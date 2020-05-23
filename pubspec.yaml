@@ -9,8 +9,12 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^0.1.3
   font_awesome_flutter: ^8.8.1
-  stacked: ^1.5.0
+  flare_splash_screen: ^3.0.1
+  stacked: ^1.5.4
+  stacked_services: ^0.3.2+1
   responsive_builder: ^0.2.0+2
+  injectable: ^0.4.0
+  auto_route: ^0.5.0
   provider: ^4.1.2
   logger: ^0.9.1
   get_it: ^4.0.2
@@ -18,11 +22,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  auto_route_generator: ^0.5.0
+  injectable_generator: ^0.4.0
+  build_runner:
   flutter_launcher_icons: ^0.7.5
 flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/flare/
     - assets/images/
 flutter_icons:
   ios: true

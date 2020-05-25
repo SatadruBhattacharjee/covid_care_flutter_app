@@ -1,4 +1,4 @@
-class StorageKeys {
+abstract class StorageKeys {
   static const LOCATION_DATA = 'LOCATION_DATA';
   static const CONTACT_DATA = 'CONTACT_DATA';
   static const PARTICIPATE = 'PARTICIPATE';

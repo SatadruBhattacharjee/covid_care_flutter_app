@@ -1,11 +1,13 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'repository.dart';
 
-class LocalKeyValuePersistence implements Repository {
+@Injectable(as: IRepository)
+class LocalKeyValuePersistence implements IRepository {
   String _generateKey(String userId, String key) {
     return '$userId/$key';
   }

@@ -1,4 +1,4 @@
-class HistoryKeys {
+abstract class HistoryKeys {
   /// Max esposure reporting window in days
   static const MAX_EXPOSURE_WINDOW_DAYS = 14;
 

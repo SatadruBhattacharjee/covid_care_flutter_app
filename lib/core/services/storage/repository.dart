@@ -1,6 +1,8 @@
 import 'dart:typed_data';
 
-abstract class Repository {
+import 'package:injectable/injectable.dart';
+
+abstract class IRepository {
   void saveString(String userId, String key, String value);
 
   Future<String> saveImage(String userId, String key, Uint8List image);

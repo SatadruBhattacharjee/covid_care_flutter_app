@@ -67,9 +67,7 @@ class OnboardingView extends StatelessWidget {
                 ),
               )
             : InkWell(
-                onTap: () {
-                  print("Get Started Now");
-                },
+                onTap: model.setOnboardingStepFinish,
                 child: Container(
                   height: Platform.isIOS ? 70 : 60,
                   color: Colors.blue,

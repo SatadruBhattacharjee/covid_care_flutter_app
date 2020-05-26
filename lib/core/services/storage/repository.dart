@@ -1,7 +1,5 @@
 import 'dart:typed_data';
 
-import 'package:injectable/injectable.dart';
-
 abstract class IRepository {
   void saveString(String userId, String key, String value);
 

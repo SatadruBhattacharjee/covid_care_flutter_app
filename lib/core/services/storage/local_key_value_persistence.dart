@@ -6,7 +6,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'repository.dart';
 
-@Injectable(as: IRepository)
+//@named
+//@Injectable(as: IRepository)
+@lazySingleton
 class LocalKeyValuePersistence implements IRepository {
   String _generateKey(String userId, String key) {
     return '$userId/$key';

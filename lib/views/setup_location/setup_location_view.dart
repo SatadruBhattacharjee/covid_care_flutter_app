@@ -9,9 +9,38 @@ import 'setup_location_view_model.dart';
 class SetupLocationView extends StatelessWidget {
   const SetupLocationView({Key key}) : super(key: key);
 
+  List<Widget> getAllowLocationButton(BuildContext context, int state) {
+    List<Widget> widgets = [
+      Icon(Icons.add_location),
+      SizedBox(
+        width: 20.0,
+        height: 0.0,
+      ),
+      Text(
+        'Allow Location'.toUpperCase(),
+        style: Theme.of(context).textTheme.button,
+      ),
+      SizedBox(
+        width: 20.0,
+        height: 0.0,
+      )
+    ];
+
+    if (state == 0) {
+      return widgets;
+    } else if (state == 1) {
+      widgets.add(Icon(Icons.location_on, color: Colors.greenAccent,));
+    } else if (state == -1) {
+      widgets.add(Icon(Icons.location_off, color: Colors.redAccent,));
+    }
+
+    return widgets;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder.nonReactive(
+    return ViewModelBuilder.reactive(
+      onModelReady: (model) => model.initialize(),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -42,10 +71,13 @@ class SetupLocationView extends StatelessWidget {
                 style: Theme.of(context).textTheme.subtitle1,
               ),
               CupertinoButton.filled(
-                onPressed: () {},
-                child: Text(
-                  'Allow Location'.toUpperCase(),
-                  style: Theme.of(context).textTheme.button,
+                onPressed: () {
+                  model.checkLocationPermission();
+                },
+                child: Row(
+                  // Replace with a Row for horizontal icon + text
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: getAllowLocationButton(context, model.initialized),
                 ),
               ),
               Text(

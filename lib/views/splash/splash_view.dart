@@ -2,6 +2,7 @@ import 'package:covid_care_app/core/constants/startup_states.dart';
 import 'package:covid_care_app/core/locator.dart';
 import 'package:covid_care_app/views/onboarding/onboarding_view.dart';
 import 'package:covid_care_app/views/setup_location/setup_location_view.dart';
+import 'package:covid_care_app/views/setup_notification/setup_notification_view.dart';
 import 'package:flare_splash_screen/flare_splash_screen.dart';
 
 import 'splash_view_model.dart';
@@ -50,10 +51,12 @@ class SplashView extends StatelessWidget {
                       name: 'assets/flare/intro.flr',
                       next: (_) {
                         if (!model.isBusy) {
-                          print("next");
                           int startupState = model.data;
                           if (startupState == StartupState.ONBOARDING_DONE) {
                             return SetupLocationView();
+                          } else if (startupState ==
+                              StartupState.SETUP_LOCATION_DONE) {
+                            return SetupNotificationView();
                           } else {
                             return OnboardingView();
                           }

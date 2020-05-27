@@ -1,4 +1,5 @@
 import 'package:covid_care_app/core/models/slider_model.dart';
+import 'package:covid_care_app/routes/router.gr.dart';
 import 'package:covid_care_app/widgets/onboarding/slide_page.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -70,5 +71,7 @@ class OnboardingViewModel extends BaseViewModel {
   Future setOnboardingStepFinish() async {
     await _storage.setStoreData(
         key: StorageKeys.ONBOARDING_DONE, value: 'true', isString: true);
+
+    _navigationService.navigateTo(Routes.setupLocationView);
   }
 }

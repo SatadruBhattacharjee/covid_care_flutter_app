@@ -14,6 +14,12 @@ class SplashViewModel extends FutureViewModel<int> {
         key: StorageKeys.ONBOARDING_DONE, isString: true);
 
     if (flag == 'true') {
+      flag = await _storage.getStoreData(
+        key: StorageKeys.LOCATION_SETUP_DONE, isString: true);
+
+      if (flag == 'true') {
+        return StartupState.SETUP_LOCATION_DONE;
+      }
       return StartupState.ONBOARDING_DONE;
     }
     return StartupState.INITIAL;

@@ -1,3 +1,5 @@
+import 'package:background_fetch/background_fetch.dart';
+import 'package:covid_care_app/core/services/background/background_service.dart';
 import 'package:covid_care_app/routes/router.gr.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -10,6 +12,7 @@ import 'theme/theme.dart';
 void main() async {
   setupLocator();
   runApp(MainApplication());
+  BackgroundFetch.registerHeadlessTask(BackgroundTaskService.onBackgroundFetchHeadlessTask);
 }
 
 class MainApplication extends StatelessWidget {

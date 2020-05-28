@@ -1,4 +1,6 @@
 PODS:
+  - background_fetch (0.5.5):
+    - Flutter
   - background_locator (0.0.1):
     - Flutter
   - device_info (0.0.1):
@@ -16,6 +18,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - background_fetch (from `.symlinks/plugins/background_fetch/ios`)
   - background_locator (from `.symlinks/plugins/background_locator/ios`)
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - Flutter (from `Flutter`)
@@ -26,6 +29,8 @@ DEPENDENCIES:
   - shared_preferences_web (from `.symlinks/plugins/shared_preferences_web/ios`)
 
 EXTERNAL SOURCES:
+  background_fetch:
+    :path: ".symlinks/plugins/background_fetch/ios"
   background_locator:
     :path: ".symlinks/plugins/background_locator/ios"
   device_info:
@@ -44,6 +49,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences_web/ios"
 
 SPEC CHECKSUMS:
+  background_fetch: 733393ca9893eadff0f7297a3818afe57fd68cb1
   background_locator: fe84072e5be02da3e28a3bbca81293d6c7443df7
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec

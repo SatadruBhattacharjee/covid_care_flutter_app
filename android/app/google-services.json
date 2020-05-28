@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "729056312869",
+    "firebase_url": "https://covid-kare.firebaseio.com",
+    "project_id": "covid-kare",
+    "storage_bucket": "covid-kare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729056312869:android:1006b25ece845e0712c9cc",
+        "android_client_info": {
+          "package_name": "com.covidkare.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729056312869-in0o9613ljgbhumr7cdc676bt97j8il7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnJ4zT9uBlZmFmKCxiQ3kQbUICX61GIXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729056312869-in0o9613ljgbhumr7cdc676bt97j8il7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "729056312869-t64nptenk2tpf059ak5tbdas46juu0s4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.covidkare.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

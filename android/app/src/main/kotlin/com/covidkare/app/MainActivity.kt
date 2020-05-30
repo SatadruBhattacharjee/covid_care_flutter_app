@@ -1,4 +1,4 @@
-package com.example.covid_care_app
+package com.covidkare.app
 
 import io.flutter.embedding.android.FlutterActivity
 

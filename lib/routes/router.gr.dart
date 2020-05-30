@@ -9,6 +9,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:covid_care_app/views/splash/splash_view.dart';
 import 'package:covid_care_app/views/onboarding/onboarding_view.dart';
+import 'package:covid_care_app/views/login/login_view.dart';
+import 'package:covid_care_app/views/login/otp_view.dart';
 import 'package:covid_care_app/views/setup_location/setup_location_view.dart';
 import 'package:covid_care_app/views/setup_notification/setup_notification_view.dart';
 import 'package:covid_care_app/views/setup_finish/setup_finish_view.dart';
@@ -17,6 +19,8 @@ import 'package:covid_care_app/views/home/home_view.dart';
 abstract class Routes {
   static const splashView = '/';
   static const onboardingView = '/onboarding-view';
+  static const loginViewl = '/login-viewl';
+  static const otpView = '/otp-view';
   static const setupLocationView = '/setup-location-view';
   static const setupNotificationView = '/setup-notification-view';
   static const setupFinishView = '/setup-finish-view';
@@ -24,6 +28,8 @@ abstract class Routes {
   static const all = {
     splashView,
     onboardingView,
+    loginViewl,
+    otpView,
     setupLocationView,
     setupNotificationView,
     setupFinishView,
@@ -60,6 +66,25 @@ class Router extends RouterBase {
             args as OnboardingViewArguments ?? OnboardingViewArguments();
         return MaterialPageRoute<dynamic>(
           builder: (context) => OnboardingView(key: typedArgs.key),
+          settings: settings,
+        );
+      case Routes.loginViewl:
+        if (hasInvalidArgs<LoginViewArguments>(args)) {
+          return misTypedArgsRoute<LoginViewArguments>(args);
+        }
+        final typedArgs = args as LoginViewArguments ?? LoginViewArguments();
+        return MaterialPageRoute<dynamic>(
+          builder: (context) => LoginView(key: typedArgs.key),
+          settings: settings,
+        );
+      case Routes.otpView:
+        if (hasInvalidArgs<OTPViewArguments>(args, isRequired: true)) {
+          return misTypedArgsRoute<OTPViewArguments>(args);
+        }
+        final typedArgs = args as OTPViewArguments;
+        return MaterialPageRoute<dynamic>(
+          builder: (context) => OTPView(
+              key: typedArgs.key, verificationId: typedArgs.verificationId),
           settings: settings,
         );
       case Routes.setupLocationView:
@@ -121,6 +146,19 @@ class SplashViewArguments {
 class OnboardingViewArguments {
   final Key key;
   OnboardingViewArguments({this.key});
+}
+
+//LoginView arguments holder class
+class LoginViewArguments {
+  final Key key;
+  LoginViewArguments({this.key});
+}
+
+//OTPView arguments holder class
+class OTPViewArguments {
+  final Key key;
+  final String verificationId;
+  OTPViewArguments({this.key, @required this.verificationId});
 }
 
 //SetupLocationView arguments holder class

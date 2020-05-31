@@ -1,4 +1,6 @@
+import 'package:covid_care_app/core/constants/values.dart';
 import 'package:covid_care_app/core/locator.dart';
+import 'package:covid_care_app/core/services/authentication/auth_service.dart';
 import 'package:covid_care_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
@@ -10,9 +12,9 @@ class LoginViewModel extends BaseViewModel {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController controller = TextEditingController();
   final NavigationService _navigationService = locator<NavigationService>();
-  final String initialCountry = 'AE';
+  final AuthService _authService = locator<AuthService>();
 
-  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'AE');
+  PhoneNumber phoneNumber = PhoneNumber(isoCode: Values.PHONE_CODE_INITIAL_COUNTRY);
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   String _actualCode;
@@ -31,7 +33,8 @@ class LoginViewModel extends BaseViewModel {
     // await Future.delayed(Duration(seconds: 1));
     // Navigator.of(context)
     //     .push(MaterialPageRoute(builder: (BuildContext context) => LetsChat()));
-    _navigationService.navigateTo(Routes.otpView, arguments: OTPViewArguments(verificationId: _actualCode));
+    _navigationService.navigateTo(Routes.otpView,
+        arguments: OTPViewArguments(verificationId: _actualCode));
   }
 
   onFailed() {
@@ -58,7 +61,8 @@ class LoginViewModel extends BaseViewModel {
   void onCodeSent(String verificationId, [int forceResendingToken]) async {
     print("OPT sent");
     _actualCode = verificationId;
-    _navigationService.navigateTo(Routes.otpView, arguments: OTPViewArguments(verificationId: _actualCode));
+    _navigationService.navigateTo(Routes.otpView,
+        arguments: OTPViewArguments(verificationId: _actualCode));
     //_showSnackBar("OPT sent");
 //    _showSnackBar(phoneAuthDataProvider.message);
   }
@@ -96,22 +100,32 @@ class LoginViewModel extends BaseViewModel {
   }
 
   void verifyPhoneNumber(PhoneNumber number) {
-    _auth
-        .verifyPhoneNumber(
-            phoneNumber: number.phoneNumber,
-            timeout: Duration(seconds: 120),
-            verificationCompleted: onVerificationCompleted,
-            verificationFailed: onVerificationFailed,
-            codeSent: onCodeSent,
-            codeAutoRetrievalTimeout: onAutoRetrievalTimeOut)
-        .then((value) {
-      if (onCodeSent != null) onCodeSent('');
-      //_addStatus(PhoneAuthState.CodeSent);
-      print('Code sent');
-    }).catchError((error) {
-      if (onError != null) onError();
-      // _addStatus(PhoneAuthState.Error);
-      print(error.toString());
+    _authService.verifyPhoneNumber(
+      phoneNumber: number.phoneNumber,
+      onCodeSentCallback: onCodeSent,
+      onVerifiedCallback: onVerificationCompleted,
+      onAutoRetrievalTimeOutCallback: onAutoRetrievalTimeOut,
+      onErrorCallback: onError,
+      onFailedCallback: onFailed,
+    ).then( (PhoneAuthState phoneAuthState) {
+      print('PhoneAuthState: ${phoneAuthState.toString()}');
     });
+    // _auth
+    //     .verifyPhoneNumber(
+    //         phoneNumber: number.phoneNumber,
+    //         timeout: Duration(seconds: 120),
+    //         verificationCompleted: onVerificationCompleted,
+    //         verificationFailed: onVerificationFailed,
+    //         codeSent: onCodeSent,
+    //         codeAutoRetrievalTimeout: onAutoRetrievalTimeOut)
+    //     .then((value) {
+    //   if (onCodeSent != null) onCodeSent('');
+    //   //_addStatus(PhoneAuthState.CodeSent);
+    //   print('Code sent');
+    // }).catchError((error) {
+    //   if (onError != null) onError();
+    //   // _addStatus(PhoneAuthState.Error);
+    //   print(error.toString());
+    // });
   }
 }

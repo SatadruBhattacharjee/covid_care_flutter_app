@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'setup_notification_view_model.dart';
 
 class SetupNotificationView extends StatelessWidget {
+  
   const SetupNotificationView({Key key}) : super(key: key);
 
   @override

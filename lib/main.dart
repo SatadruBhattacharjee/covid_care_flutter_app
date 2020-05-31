@@ -23,7 +23,7 @@ class MainApplication extends StatelessWidget {
         child: MaterialApp(
           theme: buildAppTheme(),
           //navigatorKey: locator<NavigatorService>().navigatorKey,
-          initialRoute: Routes.loginViewl,
+          initialRoute: Routes.splashView,
           onGenerateRoute: Router().onGenerateRoute,
           navigatorKey: locator<NavigationService>().navigatorKey,
           //onGenerateRoute: Router.,

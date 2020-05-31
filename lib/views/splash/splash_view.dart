@@ -1,6 +1,9 @@
 import 'package:covid_care_app/core/constants/startup_states.dart';
 import 'package:covid_care_app/core/locator.dart';
+import 'package:covid_care_app/views/home/home_view.dart';
+import 'package:covid_care_app/views/login/login_view.dart';
 import 'package:covid_care_app/views/onboarding/onboarding_view.dart';
+import 'package:covid_care_app/views/setup_finish/setup_finish_view.dart';
 import 'package:covid_care_app/views/setup_location/setup_location_view.dart';
 import 'package:covid_care_app/views/setup_notification/setup_notification_view.dart';
 import 'package:flare_splash_screen/flare_splash_screen.dart';
@@ -52,13 +55,22 @@ class SplashView extends StatelessWidget {
                       next: (_) {
                         if (!model.isBusy) {
                           int startupState = model.data;
-                          if (startupState == StartupState.ONBOARDING_DONE) {
+                          if (startupState == StartupState.INITIAL) {
+                            return OnboardingView();
+                          } else if (startupState ==
+                              StartupState.ONBOARDING_DONE) {
+                            return LoginView();
+                          } else if (startupState == StartupState.LOGIN_DONE) {
                             return SetupLocationView();
                           } else if (startupState ==
                               StartupState.SETUP_LOCATION_DONE) {
                             return SetupNotificationView();
-                          } else {
-                            return OnboardingView();
+                          } else if (startupState ==
+                              StartupState.SETUP_NOTIFICATION_DONE) {
+                            return SetupFinishView();
+                          } else if (startupState ==
+                              StartupState.SETUP_COMPLETE_DONE) {
+                            return HomeView();
                           }
                         }
                       },

@@ -35,7 +35,7 @@ class SetupLocationViewModel extends BaseViewModel {
         notifyListeners();
 
         Future.delayed(const Duration(milliseconds: 1000), () async {
-          await setLocationSetupStepFinish();
+          //await setLocationSetupStepFinish();
         });
       },
     );
@@ -48,6 +48,8 @@ class SetupLocationViewModel extends BaseViewModel {
     if (!allowed) {
       initialized = -1;
       notifyListeners();
+    } else {
+      await setLocationSetupStepFinish();
     }
   }
 

@@ -29,30 +29,60 @@ class SetupFinishView extends StatelessWidget {
         ),
         body: Container(
           margin: EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              Image.asset('assets/images/Phone Alerts.png'),
-              Text('You’re all set!',
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Image.asset('assets/images/Family.png'),
+                Text('You’re all set!',
+                    textAlign: TextAlign.left,
+                    style: Theme.of(context).textTheme.headline4),
+                SizedBox(height: 10),
+                Text(
+                  'Thank you for helping protect your communities. You will be notified of potential exposure to COVID-19.',
                   textAlign: TextAlign.left,
-                  style: Theme.of(context).textTheme.headline4),
-              Text(
-                'Thank you for helping protect your communities. You will be notified of potential exposure to COVID-19.',
-                textAlign: TextAlign.left,
-                style: Theme.of(context).textTheme.subtitle1,
-              ),
-              CupertinoButton.filled(
-                onPressed: () {},
-                child: Text(
-                  'Allow Notification'.toUpperCase(),
-                  style: Theme.of(context).textTheme.button,
+                  style: Theme.of(context).textTheme.subtitle1,
                 ),
-              ),
-              Text(
-                'Helps you to get exposure notification.',
-                style: Theme.of(context).textTheme.subtitle2,
-              )
-            ],
+                SizedBox(height: 15),
+                CupertinoButton.filled(
+                  onPressed: () {
+                    model.setCompleteSetupStepFinish();
+                  },
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      'Get Started'.toUpperCase(),
+                      style: Theme.of(context).textTheme.button,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'It works best when everyone uses it.',
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
+                SizedBox(height: 10),
+                CupertinoButton.filled(
+                  onPressed: () {},
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      'Tested for COVID-19?'.toUpperCase(),
+                      style: Theme.of(context).textTheme.button,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'Share your result anonymously to help your community stay safe.',
+                  style: Theme.of(context).textTheme.subtitle2,
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 25),
+              ],
+            ),
           ),
         ),
       ),

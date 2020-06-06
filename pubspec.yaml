@@ -19,7 +19,7 @@ dependencies:
   stacked: ^1.5.4
   stacked_services: ^0.3.2+1
   responsive_builder: ^0.2.0+2
-  flutter_local_notifications: ^1.4.3
+  flutter_local_notifications: ^1.4.4+1
   shared_preferences: ^0.5.7+3
   injectable: ^0.4.0
   auto_route: ^0.5.0

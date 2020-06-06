@@ -8,6 +8,7 @@ import 'package:covid_care_app/core/services/authentication/auth_service.dart';
 import 'package:covid_care_app/core/services/third_party_services_module.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:covid_care_app/core/services/storage/local_key_value_persistence.dart';
+import 'package:covid_care_app/core/services/notification/local_notification_service.dart';
 import 'package:covid_care_app/core/services/storage/storage.dart';
 import 'package:covid_care_app/core/services/detection/intersect_notification.dart';
 import 'package:covid_care_app/core/services/startup/startup_service.dart';
@@ -20,6 +21,8 @@ void $initGetIt(GetIt g, {String environment}) {
       () => thirdPartyServicesModule.dialogService);
   g.registerLazySingleton<LocalKeyValuePersistence>(
       () => LocalKeyValuePersistence());
+  g.registerLazySingleton<LocalNotificationService>(
+      () => LocalNotificationService());
   g.registerLazySingleton<NavigationService>(
       () => thirdPartyServicesModule.navigationService);
   g.registerLazySingleton<SnackbarService>(

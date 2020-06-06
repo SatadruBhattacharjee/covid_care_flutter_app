@@ -1,3 +1,5 @@
+import 'dart:io' show Platform;
+
 import 'package:covid_care_app/core/constants/startup_states.dart';
 import 'package:covid_care_app/core/locator.dart';
 import 'package:covid_care_app/views/home/home_view.dart';
@@ -64,7 +66,11 @@ class SplashView extends StatelessWidget {
                             return SetupLocationView();
                           } else if (startupState ==
                               StartupState.SETUP_LOCATION_DONE) {
-                            return SetupNotificationView();
+                            if (Platform.isIOS) {
+                              return SetupNotificationView();
+                            } else {
+                              return SetupFinishView();
+                            }
                           } else if (startupState ==
                               StartupState.SETUP_NOTIFICATION_DONE) {
                             return SetupFinishView();

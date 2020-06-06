@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'dart:io' show Platform;
 import 'dart:isolate';
 
 import 'package:background_locator/location_dto.dart';
@@ -53,6 +54,10 @@ class SetupLocationViewModel extends BaseViewModel {
   Future setLocationSetupStepFinish() async {
     await _storage.setStoreData(
         key: StorageKeys.LOCATION_SETUP_DONE, value: 'true', isString: true);
-        _navigationService.navigateTo(Routes.setupNotificationView);
+    if (Platform.isIOS) {
+      _navigationService.navigateTo(Routes.setupNotificationView);
+    } else {
+      _navigationService.navigateTo(Routes.setupFinishView);
+    }
   }
 }

@@ -12,7 +12,8 @@ class SetupNotificationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder.nonReactive(
+    return ViewModelBuilder.reactive(
+      onModelReady: (model) => model.initialize(),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -43,7 +44,9 @@ class SetupNotificationView extends StatelessWidget {
                 style: Theme.of(context).textTheme.subtitle1,
               ),
               CupertinoButton.filled(
-                onPressed: () {},
+                onPressed: () {
+                  model.requestPermissions();
+                },
                 child: Text(
                   'Allow Notification'.toUpperCase(),
                   style: Theme.of(context).textTheme.button,

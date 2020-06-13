@@ -81,7 +81,7 @@ class _HomeViewState extends State<HomeView>
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
         viewModelBuilder: () => HomeViewModel(),
-        builder: (context, viewModel, child) {
+        builder: (context, model, child) {
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.transparent,
@@ -105,6 +105,7 @@ class _HomeViewState extends State<HomeView>
             floatingActionButton: FloatingActionButton.extended(
               onPressed: () {
                 // Add your onPressed code here!
+                model.navigateToReportPage();
               },
               label: Text('Test Report'.toUpperCase()),
               icon: Icon(Icons.add),

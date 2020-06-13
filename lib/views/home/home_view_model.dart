@@ -1,6 +1,11 @@
-import 'package:covid_care_app/core/base/base_view_model.dart';
+import 'package:covid_care_app/core/locator.dart';
+import 'package:covid_care_app/routes/router.gr.dart';
+import 'package:covid_care_app/views/report/test_report_view.dart';
+import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class HomeViewModel extends BaseViewModel {
+  final NavigationService _navigationService = locator<NavigationService>();
   int _counter;
 
   HomeViewModel({int counter = 0}) : this._counter = counter;
@@ -12,4 +17,8 @@ class HomeViewModel extends BaseViewModel {
   }
 
   void increment() => this.counter += 1;
+
+  void navigateToReportPage() {
+    _navigationService.navigateWithTransition(TestReportView(), transition: 'downToUp');
+  }
 }

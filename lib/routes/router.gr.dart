@@ -15,6 +15,7 @@ import 'package:covid_care_app/views/setup_location/setup_location_view.dart';
 import 'package:covid_care_app/views/setup_notification/setup_notification_view.dart';
 import 'package:covid_care_app/views/setup_finish/setup_finish_view.dart';
 import 'package:covid_care_app/views/home/home_view.dart';
+import 'package:covid_care_app/views/report/test_report_view.dart';
 
 abstract class Routes {
   static const splashView = '/';
@@ -25,6 +26,7 @@ abstract class Routes {
   static const setupNotificationView = '/setup-notification-view';
   static const setupFinishView = '/setup-finish-view';
   static const homeView = '/home-view';
+  static const testReportView = '/test-report-view';
   static const all = {
     splashView,
     onboardingView,
@@ -34,6 +36,7 @@ abstract class Routes {
     setupNotificationView,
     setupFinishView,
     homeView,
+    testReportView,
   };
 }
 
@@ -126,6 +129,16 @@ class Router extends RouterBase {
           builder: (context) => HomeView(key: typedArgs.key),
           settings: settings,
         );
+      case Routes.testReportView:
+        if (hasInvalidArgs<TestReportViewArguments>(args)) {
+          return misTypedArgsRoute<TestReportViewArguments>(args);
+        }
+        final typedArgs =
+            args as TestReportViewArguments ?? TestReportViewArguments();
+        return MaterialPageRoute<dynamic>(
+          builder: (context) => TestReportView(key: typedArgs.key),
+          settings: settings,
+        );
       default:
         return unknownRoutePage(settings.name);
     }
@@ -183,4 +196,10 @@ class SetupFinishViewArguments {
 class HomeViewArguments {
   final Key key;
   HomeViewArguments({this.key});
+}
+
+//TestReportView arguments holder class
+class TestReportViewArguments {
+  final Key key;
+  TestReportViewArguments({this.key});
 }

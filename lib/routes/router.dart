@@ -4,6 +4,7 @@ import 'package:covid_care_app/views/home/home_view.dart';
 import 'package:covid_care_app/views/login/login_view.dart';
 import 'package:covid_care_app/views/login/otp_view.dart';
 import 'package:covid_care_app/views/onboarding/onboarding_view.dart';
+import 'package:covid_care_app/views/report/test_report_view.dart';
 import 'package:covid_care_app/views/setup_finish/setup_finish_view.dart';
 import 'package:covid_care_app/views/setup_location/setup_location_view.dart';
 import 'package:covid_care_app/views/setup_notification/setup_notification_view.dart';
@@ -20,4 +21,5 @@ class $Router {
   SetupNotificationView setupNotificationView;
   SetupFinishView setupFinishView;
   HomeView homeView;
+  TestReportView testReportView;
 }

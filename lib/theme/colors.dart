@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 const int _kPrimaryColorValue = 0xFF6202EE;
+const kBoxContainerBorderColor = const Color(0xFFCCCCCC);
 const kPrimaryColor500 = const Color(_kPrimaryColorValue);
 const kButtonColor = const Color(0xFFFAFAFA);
 const kHeadingTextColor = const Color(0xFF585858);
+const kAppbarActionButtonColor = const Color(0xFF686868);
 
 const MaterialColor kDeepPurpleSwatch = const MaterialColor(
     _kPrimaryColorValue,

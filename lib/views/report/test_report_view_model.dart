@@ -3,6 +3,8 @@ import 'package:jiffy/jiffy.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import 'confirm_report_view.dart';
+
 enum TestReportState { Initial, Positive, Nagative }
 
 class TestReportViewModel extends BaseViewModel {
@@ -31,5 +33,9 @@ class TestReportViewModel extends BaseViewModel {
 
   void closePage() {
     _navigationService.back();
+  }
+
+  Future navigateToConfirmReportPage() async {
+    await _navigationService.navigateWithTransition(ConfirmReportView(), transition: 'downToUp');
   }
 }

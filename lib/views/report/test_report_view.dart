@@ -227,7 +227,7 @@ class TestReportView extends StatelessWidget {
           ),
           CupertinoButton.filled(
             onPressed: () {
-              //model.setCompleteSetupStepFinish();
+              model.navigateToConfirmReportPage();
             },
             child: SizedBox(
               width: double.infinity,

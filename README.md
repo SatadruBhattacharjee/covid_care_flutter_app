@@ -56,7 +56,7 @@ A few of the things you can do with CovidKare:
 
 
 <p align="center">
-  <img src = "https://i.imgur.com/hSBBJng.png" width=300>
+  <img src = "https://i.imgur.com/2s5nqjk.png" width=1240>
 </p>
 
 

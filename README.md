@@ -1,12 +1,12 @@
 <h1 align="center"> CovidKare </h1> <br>
 <p align="center">
   <a href="">
-    <img alt="CovidKare" title="CovidKare" src="https://i.imgur.com/ar835F2.png" width="450">
+    <img alt="CovidKare" title="CovidKare" src="https://i.imgur.com/ar835F2.png" width="150">
   </a>
 </p>
 
 <p align="center">
-  Stay safe, feel secure. With our GPS app, remember where you’ve been. See if you’ve encountered anyone diagnosed with COVID-19. Designed with security as the No. 1 priority. Build with Flutter.
+  Stay safe, feel secure. With our GPS app, remember where you’ve been. See if you’ve encountered anyone diagnosed with COVID-19. Designed with security as the No. 1 priority. <b>Build with Flutter.</b> ❤️
 </p>
 
 <p align="center">
@@ -32,9 +32,9 @@ open-source, privacy-by-design app for individuals, public health officials, and
 
 **Build for both iOS and Android.**
 
-<!-- <p align="center">
-  <img src = "http://i.imgur.com/HowF6aM.png" width=350>
-</p> -->
+<p align="center">
+  <img src = "https://i.imgur.com/TbkToZT.png" width=350>
+</p>
 
 ## Features
 
@@ -46,8 +46,22 @@ A few of the things you can do with CovidKare:
 * You control your data
 * Communities will win together
 
+### Smooth Onboarbing
+
 <p align="center">
-  <img src = "https://i.imgur.com/suV98Yw.png" width=900>
+  <img src = "https://i.imgur.com/RezeKD8.png" width=1240>
+</p>
+
+### Exposure Detecting
+
+<p align="center">
+  <img src = "https://i.imgur.com/hSBBJng.png" width=400>
+</p>
+
+### Help Community
+
+<p align="center">
+  <img src = "https://i.imgur.com/aFWakaq.png" width=1240>
 </p>
 
 ## Feedback

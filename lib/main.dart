@@ -21,6 +21,7 @@ class MainApplication extends StatelessWidget {
     return MultiProvider(
         providers: ProviderInjector.providers,
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           theme: buildAppTheme(),
           //navigatorKey: locator<NavigatorService>().navigatorKey,
           initialRoute: Routes.splashView,

@@ -54,15 +54,18 @@ A few of the things you can do with CovidKare:
 
 ### Exposure Detecting
 
+
 <p align="center">
-  <img src = "https://i.imgur.com/hSBBJng.png" width=400>
+  <img src = "https://i.imgur.com/hSBBJng.png?1" width=400>
 </p>
+
 
 ### Help Community
 
 <p align="center">
   <img src = "https://i.imgur.com/aFWakaq.png" width=1240>
 </p>
+
 
 ## Feedback
 
